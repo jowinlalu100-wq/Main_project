@@ -1,0 +1,201 @@
+/* =========================
+   DASHBOARD BACKGROUND VIDEO
+   ========================= */
+
+.dashboard-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.dashboard-video {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+.dashboard-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1) saturate(1.1);
+}
+
+/* Optional dark gradient overlay */
+.dashboard-wrapper::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.7)
+  );
+  z-index: -1;
+}
+
+/* =========================
+   DASHBOARD CONTENT
+   ========================= */
+
+.dashboard {
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  color: white;
+  text-align: center;
+}
+
+/* Heading */
+.dashboard h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.dashboard p {
+  opacity: 0.85;
+  margin-bottom: 40px;
+}
+
+/* =========================
+   TRIP GRID
+   ========================= */
+
+.trip-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* =========================
+   TRIP CARD (GLASS STYLE)
+   ========================= */
+
+.trip-card {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 22px;
+
+  text-align: left;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Hover effect */
+.trip-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* Trip content */
+.trip-card h3 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.trip-card p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+/* Date highlight */
+.trip-card p:nth-child(3) {
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+  .dashboard h1 {
+    font-size: 32px;
+  }
+
+  .trip-grid {
+    padding: 0 20px;
+  }
+}
+/* ==============================
+   FOOTER
+   ============================== */
+
+.home-footer {
+  margin-top: 100px;
+  padding: 30px 20px;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  color: white;
+  text-align: center;
+}
+
+/* LEFT */
+.footer-left h3 {
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+.footer-left p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* CENTER (SOCIAL LINKS) */
+.footer-center {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-center a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.footer-center a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* RIGHT */
+.footer-right p {
+  font-size: 13px;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+}

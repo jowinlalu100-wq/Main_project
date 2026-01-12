@@ -1,0 +1,337 @@
+/* ==============================
+   MAGICAL TRAVEL BACKGROUND
+   ============================== */
+
+.planner-container {
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 120px;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  background:
+    radial-gradient(1200px 600px at 10% 20%, rgba(79, 172, 254, 0.18), transparent 60%),
+    radial-gradient(1000px 500px at 90% 10%, rgba(0, 242, 254, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 50% 90%, rgba(67, 233, 123, 0.15), transparent 60%),
+    linear-gradient(180deg, #0b0f14, #0f1723 60%, #0b0f14);
+
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* subtle star/noise texture */
+.planner-container::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* ==============================
+   TITLE
+   ============================== */
+
+.planner-title {
+  text-align: center;
+  font-size: 44px;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+
+  background: linear-gradient(135deg, #ffffff, #a8dfff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==============================
+   EMPTY STATE
+   ============================== */
+
+.planner-empty {
+  text-align: center;
+  opacity: 0.75;
+  font-size: 18px;
+}
+
+/* ==============================
+   GRID
+   ============================== */
+
+.planner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 34px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   TRIP CARD (MAGICAL GLASS)
+   ============================== */
+
+.trip-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.08)
+  );
+
+  backdrop-filter: blur(20px);
+  border-radius: 22px;
+  padding: 26px;
+
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.trip-card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+
+/* ==============================
+   CARD CONTENT
+   ============================== */
+
+.trip-card h3 {
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.trip-dates {
+  font-size: 14px;
+  opacity: 0.75;
+  margin-bottom: 12px;
+}
+
+.trip-notes {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* ==============================
+   PLANNER FORM PAGE
+   ============================== */
+
+.planner-page {
+  min-height: 100vh;
+  padding-top: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+/* ==============================
+   FORM CARD (FOCUS ZONE)
+   ============================== */
+
+.planner-form {
+  width: 100%;
+  max-width: 440px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.1)
+  );
+
+  backdrop-filter: blur(22px);
+  padding: 36px;
+  border-radius: 26px;
+
+  box-shadow:
+    0 35px 70px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ==============================
+   INPUTS
+   ============================== */
+
+.planner-form input,
+.planner-form textarea {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+  font-size: 14px;
+}
+
+.planner-form input::placeholder,
+.planner-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==============================
+   DATE ROW
+   ============================== */
+
+.date-row {
+  display: flex;
+  gap: 12px;
+}
+
+/* ==============================
+   BUTTON
+   ============================== */
+
+.planner-form button {
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+
+  font-weight: 600;
+  font-size: 15px;
+  color: white;
+
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  box-shadow: 0 14px 35px rgba(0, 114, 255, 0.5);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.planner-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px rgba(0, 114, 255, 0.7);
+}
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 768px) {
+  .planner-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .planner-title {
+    font-size: 34px;
+  }
+}
+/* Center everything inside the main container */
+.planner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* horizontal centering */
+  text-align: center;
+  
+}
+
+/* Ensure grid items are centered */
+.planner-grid {
+  display: grid;            /* keeps existing grid intact */
+  place-items: center;      /* centers both axes */
+}
+
+/* Center content inside trip cards */
+.trip-card {
+  display: flex;            /* ADD */
+  flex-direction: column;   /* ADD */
+  align-items: center;      /* ADD */
+  justify-content: center;  /* ADD */
+  text-align: center;
+  
+}
+
+/* Center form elements */
+.planner-form {
+  display: flex;            /* ADD */
+  flex-direction: column;   /* ADD */
+     /* horizontal */
+  justify-content: center;  /* vertical */
+}
+
+/* Center buttons & inputs if any */
+.planner-form input,
+.planner-form button {
+  text-align: center;
+}
+/* ==============================
+   FOOTER
+   ============================== */
+
+.home-footer {
+  margin-top: 100px;
+  padding: 30px 20px;
+  width:100%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  color: white;
+  text-align: center;
+}
+
+/* LEFT */
+.footer-left h3 {
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+.footer-left p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* CENTER (SOCIAL LINKS) */
+.footer-center {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-center a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.footer-center a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* RIGHT */
+.footer-right p {
+  font-size: 13px;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+}
